@@ -1,7 +1,7 @@
 # resampler
 js audio resampler
 
-###example
+### example
 ```javascript
 
 navigator.mediaDevices.getUserMedia({audio: true})
@@ -14,9 +14,8 @@ navigator.mediaDevices.getUserMedia({audio: true})
           bufferArray= [];
       
       processor.onaudioprocess = (event) => {
-        const array = event.inputBuffer.getChannelData(0); 
         // const right = event.inputBuffer.getChannelData(1);
-        const outBuf = res.resample(array);
+        const outBuf = res.resample(event.inputBuffer.getChannelData(0));
         bufferArray.push.apply(bufferArray, outBuf);
       }
       
@@ -35,7 +34,7 @@ navigator.mediaDevices.getUserMedia({audio: true})
         }
       };
       
-      this.getBlob = () => {
+      this.getPcm = () => {
         return new Float32Array(bufferArray);
       };
     })

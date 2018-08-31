@@ -127,7 +127,7 @@ class Resampler {
         secondWeight = weight % 1;
         firstWeight  = 1 - secondWeight;
         for (channel = 0; channel < this.channels; ++channel) {
-          outputBuffer[outputOffset++] = (buffer[sourceOffset((channel > 0) ? (" + " + channel) : "")] * firstWeight) + (buffer[sourceOffset(channels + channel)] * secondWeight);
+          outputBuffer[outputOffset++] = (buffer[sourceOffset + ((channel > 0) ? (channel) : 0)] * firstWeight) + (buffer[sourceOffset+(channels + channel)] * secondWeight);
         }
         weight += ratioWeight;
         sourceOffset = Math.floor(weight) * channels;
@@ -242,3 +242,5 @@ class Resampler {
     return this.resampler(buffer)
   }
 }
+
+module.exports = Resampler

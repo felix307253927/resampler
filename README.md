@@ -37,5 +37,9 @@ navigator.mediaDevices.getUserMedia({audio: true})
       this.getPcm = () => {
         return new Float32Array(bufferArray);
       };
+      this.get16BitPcm = () => {
+        //floatTo16BitPCM  in util.js file
+        return floatTo16BitPCM(bufferArray);
+      }
     })
 ```

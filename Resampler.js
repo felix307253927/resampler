@@ -201,7 +201,7 @@ class Resampler {
             weight -= amountToNext;
           } else {
             for (channel = 0; channel < channels; ++channel) {
-              output_variable_list[channel] += buffer[actualPosition + ((channel > 0) ? (" + " + channel) : "")] * weight;
+              output_variable_list[channel] += buffer[actualPosition + ((channel > 0) ? channel : 0)] * weight;
             }
             currentPosition += weight;
             weight = 0;

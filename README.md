@@ -9,7 +9,7 @@ navigator.mediaDevices.getUserMedia({audio: true})
       let context    = new AudioContext(),
           bufSize    = 4096,
           microphone = context.createMediaStreamSource(stream),
-          processor  = context.createScriptProcessor(bufSize, 1, 1), ;
+          processor  = context.createScriptProcessor(bufSize, 1, 1),
           res        = new Resampler(context.sampleRate, 16000, 1, bufSize),
           bufferArray= [];
       
